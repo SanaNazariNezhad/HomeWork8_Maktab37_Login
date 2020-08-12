@@ -1,9 +1,7 @@
 package org.maktab.homework8_maktab37_login.Controller;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -11,13 +9,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import org.maktab.homework8_maktab37_login.Model.Account;
 import org.maktab.homework8_maktab37_login.R;
 
 public class SignUpActivity extends AppCompatActivity {
     public static final String EXTRA_USERNAME_SIGN_UP = "extraUsername";
     public static final String EXTRA_PASSWORD_SIGN_UP = "EXTRA_password";
-    public static final int REQUEST_CODE_LOGIN = 1;
     private Button mBtnSignUp;
     private EditText mEditTextUser, mEditTextPass;
 

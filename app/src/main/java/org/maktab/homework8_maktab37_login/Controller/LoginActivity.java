@@ -14,7 +14,6 @@ import android.widget.Toast;
 
 import com.google.android.material.snackbar.Snackbar;
 
-import org.maktab.homework8_maktab37_login.Model.Account;
 import org.maktab.homework8_maktab37_login.R;
 
 public class LoginActivity extends AppCompatActivity {
@@ -24,7 +23,6 @@ public class LoginActivity extends AppCompatActivity {
     private EditText mEditTextUsername,mEditTextPassword;
     public static final int REQUEST_CODE_SIGN_UP = 0;
     private String user, pass;
-    private Account mAccount = new Account();
     private ViewGroup mViewGroupRootLayout;
 
     @Override
