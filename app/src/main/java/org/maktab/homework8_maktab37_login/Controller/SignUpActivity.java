@@ -22,6 +22,7 @@ public class SignUpActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
 
+        setTitle(R.string.sign_up);
         findViews();
         mEditTextUser.setText(getIntent().getStringExtra(LoginActivity.EXTRA_USERNAME));
         mEditTextPass.setText(getIntent().getStringExtra(LoginActivity.EXTRA_PASSWORD));

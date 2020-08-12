@@ -1,5 +1,6 @@
 package org.maktab.homework8_maktab37_login.Controller;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -19,6 +20,8 @@ import org.maktab.homework8_maktab37_login.R;
 public class LoginActivity extends AppCompatActivity {
     public static final String EXTRA_USERNAME = "extraUsername";
     public static final String EXTRA_PASSWORD = "EXTRA_password";
+    public static final String BUNDLE_KEY_USERNAME = "UserBundle";
+    public static final String BUNDLE_KEY_PASSWORD = "passBundle";
     private Button mButtonLogin,mButtonSignUp;
     private EditText mEditTextUsername,mEditTextPassword;
     public static final int REQUEST_CODE_SIGN_UP = 0;
@@ -28,10 +31,23 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        if (savedInstanceState != null){
+            user = savedInstanceState.getString(BUNDLE_KEY_USERNAME);
+            pass = savedInstanceState.getString(BUNDLE_KEY_PASSWORD);
+        }
         setContentView(R.layout.activity_login);
 
+        setTitle(R.string.login);
         findViews();
         listeners();
+    }
+
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putString(BUNDLE_KEY_USERNAME,user);
+        outState.putString(BUNDLE_KEY_PASSWORD,pass);
     }
 
     @Override
