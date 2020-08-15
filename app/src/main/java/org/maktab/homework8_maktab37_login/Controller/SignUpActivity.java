@@ -9,6 +9,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.textfield.TextInputLayout;
+
 import org.maktab.homework8_maktab37_login.R;
 
 public class SignUpActivity extends AppCompatActivity {
@@ -41,6 +44,8 @@ public class SignUpActivity extends AppCompatActivity {
                     finish();
                 }
 
+
+
             }
         });
     }
@@ -56,5 +61,9 @@ public class SignUpActivity extends AppCompatActivity {
         mBtnSignUp = findViewById(R.id.btnSignUp_SignUP);
         mEditTextUser = findViewById(R.id.editTextUsernameSignUP);
         mEditTextPass = findViewById(R.id.editTextPasswordSignUp);
+
+
     }
+
+
 }

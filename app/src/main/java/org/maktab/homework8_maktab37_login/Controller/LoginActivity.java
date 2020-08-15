@@ -28,6 +28,7 @@ public class LoginActivity extends AppCompatActivity {
     private String user, pass;
     private ViewGroup mViewGroupRootLayout;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -78,19 +79,23 @@ public class LoginActivity extends AppCompatActivity {
                     Snackbar.make(mViewGroupRootLayout,R.string.login,Snackbar.LENGTH_SHORT).show();
                 }
 
+
             }
         });
         mButtonSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(LoginActivity.this,SignUpActivity.class);
-                if (!mEditTextPassword.getText().toString().equals("") && !mEditTextUsername.getText().toString().equals("")) {
+                if (!mEditTextPassword.getText().toString().equals("") || !mEditTextUsername.getText().toString().equals("")) {
                     intent.putExtra(EXTRA_USERNAME,mEditTextUsername.getText().toString());
                     intent.putExtra(EXTRA_PASSWORD,mEditTextPassword.getText().toString());
                 }
                 startActivityForResult(intent,REQUEST_CODE_SIGN_UP);
+
+
             }
         });
+
     }
 
     private void callToast(int p) {
@@ -104,5 +109,6 @@ public class LoginActivity extends AppCompatActivity {
         mEditTextPassword = findViewById(R.id.editTextPasswordLogin);
         mEditTextUsername = findViewById(R.id.editTextUsernameLogin);
         mViewGroupRootLayout = findViewById(R.id.rootLayout);
+
     }
 }

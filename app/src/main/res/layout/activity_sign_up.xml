@@ -27,6 +27,8 @@
         android:inputType="numberPassword"
         tools:text="Password" />
 
+
+
     <Button
         android:id="@+id/btnSignUp_SignUP"
         android:layout_width="wrap_content"
