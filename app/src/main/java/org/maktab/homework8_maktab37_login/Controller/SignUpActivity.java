@@ -24,7 +24,6 @@ public class SignUpActivity extends AppCompatActivity {
     private TextInputLayout mPasswordForm;
     private TextInputEditText mUsername;
     private TextInputEditText mPassword;
-    /*private EditText mEditTextUser, mEditTextPass;*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,8 +77,6 @@ public class SignUpActivity extends AppCompatActivity {
 
     private void findViews() {
         mBtnSignUp = findViewById(R.id.btnSignUp_SignUP);
-        /*mEditTextUser = findViewById(R.id.editTextUsernameSignUP);
-        mEditTextPass = findViewById(R.id.editTextPasswordSignUp);*/
         mUsernameForm = findViewById(R.id.username_form_signUp);
         mUsername = findViewById(R.id.username_signUp);
         mPasswordForm = findViewById(R.id.password_form_signUp);

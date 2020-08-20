@@ -25,7 +25,6 @@ public class LoginActivity extends AppCompatActivity {
     public static final String BUNDLE_KEY_USERNAME = "UserBundle";
     public static final String BUNDLE_KEY_PASSWORD = "passBundle";
     private Button mButtonLogin,mButtonSignUp;
-    /*private EditText mEditTextUsername,mEditTextPassword;*/
     public static final int REQUEST_CODE_SIGN_UP = 0;
     private String user, pass;
     private ViewGroup mViewGroupRootLayout;
