@@ -14,11 +14,17 @@ import com.google.android.material.textfield.TextInputLayout;
 
 import org.maktab.homework8_maktab37_login.R;
 
+import java.util.Objects;
+
 public class SignUpActivity extends AppCompatActivity {
     public static final String EXTRA_USERNAME_SIGN_UP = "extraUsername";
     public static final String EXTRA_PASSWORD_SIGN_UP = "EXTRA_password";
     private Button mBtnSignUp;
-    private EditText mEditTextUser, mEditTextPass;
+    private TextInputLayout mUsernameForm;
+    private TextInputLayout mPasswordForm;
+    private TextInputEditText mUsername;
+    private TextInputEditText mPassword;
+    /*private EditText mEditTextUser, mEditTextPass;*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,8 +33,8 @@ public class SignUpActivity extends AppCompatActivity {
 
         setTitle(R.string.sign_up);
         findViews();
-        mEditTextUser.setText(getIntent().getStringExtra(LoginActivity.EXTRA_USERNAME));
-        mEditTextPass.setText(getIntent().getStringExtra(LoginActivity.EXTRA_PASSWORD));
+        mUsername.setText(getIntent().getStringExtra(LoginActivity.EXTRA_USERNAME));
+        mPassword.setText(getIntent().getStringExtra(LoginActivity.EXTRA_PASSWORD));
         listener();
     }
 
@@ -36,10 +42,23 @@ public class SignUpActivity extends AppCompatActivity {
         mBtnSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (mEditTextPass.getText().toString().equals("") || mEditTextUser.getText().toString().equals("")) {
-                    Toast toast = Toast.makeText(SignUpActivity.this, R.string.toast_sign_up, Toast.LENGTH_SHORT);
-                    toast.show();
-                } else {
+                mUsernameForm.setErrorEnabled(false);
+                mPasswordForm.setErrorEnabled(false);
+                if (mUsername.getText().toString().trim().isEmpty() && mPassword.getText().toString().trim().isEmpty()) {
+                    /*Toast toast = Toast.makeText(SignUpActivity.this, R.string.toast_sign_up, Toast.LENGTH_SHORT);
+                    toast.show();*/
+                    mUsernameForm.setErrorEnabled(true);
+                    mUsernameForm.setError("Field cannot be empty!");
+                    mPasswordForm.setErrorEnabled(true);
+                    mPasswordForm.setError("Field cannot be empty!");
+                }else if (mUsername.getText().toString().trim().isEmpty()){
+                    mUsernameForm.setErrorEnabled(true);
+                    mUsernameForm.setError("Field cannot be empty!");
+                }else if (mPassword.getText().toString().trim().isEmpty()){
+                    mPasswordForm.setErrorEnabled(true);
+                    mPasswordForm.setError("Field cannot be empty!");
+                }
+                else {
                     setUserPassResult();
                     finish();
                 }
@@ -52,18 +71,23 @@ public class SignUpActivity extends AppCompatActivity {
 
     private void setUserPassResult() {
         Intent intent = new Intent();
-        intent.putExtra(EXTRA_USERNAME_SIGN_UP, mEditTextUser.getText().toString());
-        intent.putExtra(EXTRA_PASSWORD_SIGN_UP, mEditTextPass.getText().toString());
+        intent.putExtra(EXTRA_USERNAME_SIGN_UP, mUsername.getText().toString());
+        intent.putExtra(EXTRA_PASSWORD_SIGN_UP, mPassword.getText().toString());
         setResult(RESULT_OK,intent);
     }
 
     private void findViews() {
         mBtnSignUp = findViewById(R.id.btnSignUp_SignUP);
-        mEditTextUser = findViewById(R.id.editTextUsernameSignUP);
-        mEditTextPass = findViewById(R.id.editTextPasswordSignUp);
+        /*mEditTextUser = findViewById(R.id.editTextUsernameSignUP);
+        mEditTextPass = findViewById(R.id.editTextPasswordSignUp);*/
+        mUsernameForm = findViewById(R.id.username_form_signUp);
+        mUsername = findViewById(R.id.username_signUp);
+        mPasswordForm = findViewById(R.id.password_form_signUp);
+        mPassword = findViewById(R.id.password_signUp);
 
 
     }
+
 
 
 }
